@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 // Beispiel: Wenn dein Repo "username.github.io" heißt → site: 'https://username.github.io', base: '/'
 // Wenn dein Repo "my-site" heißt → site: 'https://username.github.io', base: '/my-site'
 export default defineConfig({
-  site: 'https://larsgab.github.io',
+  site: 'https://larsgab.github.io/homepage/',
   base: '/',
   output: 'static',
 });
