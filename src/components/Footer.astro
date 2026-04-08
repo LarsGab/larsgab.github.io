@@ -7,29 +7,22 @@
 
 const currentYear = new Date().getFullYear();
 
-const socialLinks = [
-  { href: 'https://scholar.google.com', label: 'Google Scholar' },
-  { href: 'https://orcid.org',          label: 'ORCID'          },
-  { href: 'https://github.com',         label: 'GitHub'         },
-  { href: 'https://linkedin.com',       label: 'LinkedIn'       },
+const footerLinks = [
+  { href: '/contact', label: 'Contact' },
+  { href: '/terms',   label: 'Terms'   },
 ];
 ---
 
 <footer class="site-footer">
   <div class="container footer-inner">
     <p class="footer-copy">
-      © {currentYear} Dr. Jane Doe
+      © {currentYear} Lars Gabriel
     </p>
-    <nav class="footer-nav" aria-label="Social links">
+    <nav class="footer-nav" aria-label="Footer links">
       <ul class="footer-nav__list" role="list">
-        {socialLinks.map(link => (
+        {footerLinks.map(link => (
           <li>
-            <a
-              href={link.href}
-              class="footer-nav__link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={link.href} class="footer-nav__link">
               {link.label}
             </a>
           </li>
