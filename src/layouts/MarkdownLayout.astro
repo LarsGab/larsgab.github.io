@@ -20,19 +20,21 @@ interface Props {
     description?: string;
     subtitle?: string;
     avatar?: string;
-    avatarSize?: string;
+    avatarWidth?: string;
+    avatarHeight?: string;
   };
 }
 
 const { frontmatter } = Astro.props;
-const avatarSize = frontmatter.avatarSize ?? '96px';
+const avatarWidth = frontmatter.avatarWidth ?? '96px';
+const avatarHeight = frontmatter.avatarHeight ?? '96px';
 ---
 
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
   <div class="container">
     <div class:list={['page-header', { 'page-header--with-avatar': frontmatter.avatar }]}>
       {frontmatter.avatar && (
-        <img src={frontmatter.avatar} alt="" class="page-header__avatar" aria-hidden="true" style={`width:${avatarSize};height:${avatarSize}`} />
+        <img src={frontmatter.avatar} alt="" class="page-header__avatar" aria-hidden="true" style={`width:${avatarWidth};height:${avatarHeight}`} />
       )}
       <div>
         <h1 class="page-title">{frontmatter.title}</h1>
