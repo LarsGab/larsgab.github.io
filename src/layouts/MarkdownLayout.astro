@@ -19,6 +19,7 @@ interface Props {
     title: string;
     description?: string;
     subtitle?: string;
+    avatar?: string;
   };
 }
 
@@ -27,9 +28,14 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
   <div class="container">
-    <div class="page-header">
-      <h1 class="page-title">{frontmatter.title}</h1>
-      {frontmatter.subtitle && <p class="page-subtitle">{frontmatter.subtitle}</p>}
+    <div class:list={['page-header', { 'page-header--with-avatar': frontmatter.avatar }]}>
+      {frontmatter.avatar && (
+        <img src={frontmatter.avatar} alt="" class="page-header__avatar" aria-hidden="true" />
+      )}
+      <div>
+        <h1 class="page-title">{frontmatter.title}</h1>
+        {frontmatter.subtitle && <p class="page-subtitle">{frontmatter.subtitle}</p>}
+      </div>
     </div>
 
     <article class="prose">
@@ -44,6 +50,20 @@ const { frontmatter } = Astro.props;
     margin-bottom: var(--space-xl);
     padding-bottom: var(--space-lg);
     border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header--with-avatar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .page-header__avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
   }
 
   .page-title {

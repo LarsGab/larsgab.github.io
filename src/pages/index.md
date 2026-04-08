@@ -2,6 +2,7 @@
 layout: ../layouts/MarkdownLayout.astro
 title: "Dr. Lars Gabriel"
 subtitle: "Researcher in Computational Biology"
+avatar: "/avatar-placeholder.svg"
 description: "About Dr. Lars Gabriel – Researcher in Computational Biology at the University of Greifswald."
 ---
 
