@@ -22,8 +22,12 @@ The best way to reach me is by email. I try to respond within a few business day
 ## Address
 
 Dr. Lars Gabriel
+
 Institute of Mathematics and Computer Science
+
 University of Greifswald
+
 Walther-Rathenau-Straße 47, Room 1.16
+
 17489 Greifswald, Germany
 
