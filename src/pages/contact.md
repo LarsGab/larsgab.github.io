@@ -7,7 +7,7 @@ description: "Contact information for Dr. Lars Gabriel."
 
 ## Get in Touch
 
-The best way to reach me is by email. I try to respond within a few business days. For prospective PhD students, please read the note below before writing.
+The best way to reach me is by email. I try to respond within a few business days.
 
 - **Email** — [lars.gabriel@uni-greifswald.de](mailto:lars.gabriel@uni-greifswald.de)
 
