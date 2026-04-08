@@ -18,13 +18,6 @@ The best way to reach me is by email. I try to respond within a few business day
 - **[GitHub](https://github.com/larsgab)** — Code and research software
 - **[LinkedIn](https://www.linkedin.com/in/lars-gabriel-39a2002b1/)** — Professional network
 
-## Note for Prospective PhD Students
-
-> I am always happy to hear from talented and motivated students interested in computational linguistics, NLP, or related fields. Before writing, please check that your interests align with my current research themes (see the Bio page) and that you have a strong background in at least one of: formal linguistics, machine learning, or cognitive science.
->
-> In your email, please briefly describe your background, your research interests, and why you would like to work with me specifically. A link to your CV and, if available, a writing sample or code portfolio is very helpful.
->
-> **Note:** Due to the volume of inquiries I receive, I can only respond to emails that demonstrate genuine engagement with my research. Mass-sent generic emails may not receive a reply.
 
 ## Address
 

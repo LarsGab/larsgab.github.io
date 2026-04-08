@@ -5,7 +5,7 @@ subtitle: "Peer-reviewed journal articles, conference papers, and book chapters.
 description: "List of peer-reviewed publications by Dr. Jane Moe."
 ---
 
-## 2025
+## 2024
 
 - **Tiberius: End-to-End deep learning with an HMM for gene prediction**
   Gabriel, L., Becker, F., Hoff K. J. & Stanke, M.
