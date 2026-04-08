@@ -20,17 +20,19 @@ interface Props {
     description?: string;
     subtitle?: string;
     avatar?: string;
+    avatarSize?: string;
   };
 }
 
 const { frontmatter } = Astro.props;
+const avatarSize = frontmatter.avatarSize ?? '96px';
 ---
 
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
   <div class="container">
     <div class:list={['page-header', { 'page-header--with-avatar': frontmatter.avatar }]}>
       {frontmatter.avatar && (
-        <img src={frontmatter.avatar} alt="" class="page-header__avatar" aria-hidden="true" />
+        <img src={frontmatter.avatar} alt="" class="page-header__avatar" aria-hidden="true" style={`width:${avatarSize};height:${avatarSize}`} />
       )}
       <div>
         <h1 class="page-title">{frontmatter.title}</h1>
@@ -59,8 +61,6 @@ const { frontmatter } = Astro.props;
   }
 
   .page-header__avatar {
-    width: 96px;
-    height: 96px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
