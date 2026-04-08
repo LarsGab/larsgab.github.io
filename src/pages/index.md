@@ -2,9 +2,9 @@
 layout: ../layouts/MarkdownLayout.astro
 title: "Dr. Lars Gabriel"
 subtitle: "Researcher in Computational Biology"
-avatar: "/avatar-placeholder.svg"
+avatar: "/website_lgabriel.jpg"
 avatarWidth: "240px"
-avatarHeight: "120px"
+avatarHeight: "200px"
 description: "About Dr. Lars Gabriel – Researcher in Computational Biology at the University of Greifswald."
 ---
 
