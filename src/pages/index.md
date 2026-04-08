@@ -5,7 +5,7 @@ subtitle: "Researcher in Computational Biology"
 description: "About Dr. Lars Gabriel – Researcher in Computational Biology at the University of Greifswald."
 ---
 
-**Postdoctoral Researcher · Institute of Mathematics and Computer Science**
+**Postdoctoral Researcher · Institute of Mathematics and Computer Science,**
 University of Greifswald
 
 I work at the intersection of ....
