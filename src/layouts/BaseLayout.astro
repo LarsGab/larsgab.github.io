@@ -21,10 +21,10 @@ interface Props {
 
 const {
   title,
-  description = 'Personal academic website of Dr. Jane Doe – Researcher in Computational Linguistics.',
+  description = 'Personal academic website of Dr. Lars Gabriel – Researcher in Computational Biology.',
 } = Astro.props;
 
-const siteTitle = `${title} | Dr. Jane Doe`;
+const siteTitle = `${title} | Dr. Lars Gabriel`;
 ---
 
 <!doctype html>
@@ -33,7 +33,7 @@ const siteTitle = `${title} | Dr. Jane Doe`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="author" content="Dr. Jane Doe" />
+    <meta name="author" content="Dr. Lars Gabriel" />
 
     <!-- Open Graph -->
     <meta property="og:title"       content={siteTitle} />

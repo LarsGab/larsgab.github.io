@@ -2,7 +2,7 @@
 layout: ../layouts/MarkdownLayout.astro
 title: "Publications"
 subtitle: "Peer-reviewed journal articles, conference papers, and book chapters."
-description: "List of peer-reviewed publications by Dr. Jane Moe."
+description: "List of peer-reviewed publications by Dr. Lars Gabriel."
 ---
 
 ## 2024

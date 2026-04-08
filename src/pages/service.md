@@ -2,7 +2,7 @@
 layout: ../layouts/MarkdownLayout.astro
 title: "Service"
 subtitle: "Review work, committee memberships, teaching, and community engagement."
-description: "Academic and community service activities of Dr. Jane Moe."
+description: "Academic and community service activities of Dr. Lars Gabriel."
 ---
 
 ## Peer Review

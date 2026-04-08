@@ -2,7 +2,7 @@
 layout: ../layouts/MarkdownLayout.astro
 title: "Contact"
 subtitle: "Get in touch for collaborations, questions, or general inquiries."
-description: "Contact information for Dr. Jane Moe."
+description: "Contact information for Dr. Lars Gabriel."
 ---
 
 ## Get in Touch
