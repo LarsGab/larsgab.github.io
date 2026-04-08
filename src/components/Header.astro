@@ -1,0 +1,185 @@
+---
+/**
+ * Header / Navigation Component
+ *
+ * Renders the top navigation bar with links to all main sections.
+ * The active link is highlighted based on the current URL.
+ */
+
+const navLinks = [
+  { href: '/',             label: 'Bio'          },
+  { href: '/publications', label: 'Publications' },
+  { href: '/service',      label: 'Service'      },
+  { href: '/contact',      label: 'Contact'      },
+];
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/' || currentPath === '';
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="site-logo" aria-label="Home">
+      Dr. Jane Doe
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul class="nav-list" role="list">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['nav-link', { 'nav-link--active': isActive(link.href) }]}
+              aria-current={isActive(link.href) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Mobile menu toggle (visible on small screens) -->
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-nav-bg);
+    border-bottom: 1px solid var(--color-border);
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+  }
+
+  /* Logo / Site Name */
+  .site-logo {
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .site-logo:hover {
+    opacity: 0.65;
+  }
+
+  /* Navigation list */
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .nav-link {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .nav-link:hover {
+    color: var(--color-text);
+    opacity: 1;
+  }
+
+  .nav-link--active {
+    color: var(--color-text);
+    border-bottom-color: var(--color-text);
+  }
+
+  /* Mobile toggle — hidden by default */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-toggle__bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-text);
+    transition: transform var(--transition-base);
+  }
+
+  /* Mobile breakpoint */
+  @media (max-width: 600px) {
+    .site-nav {
+      display: none;
+      position: absolute;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: var(--color-nav-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-md) var(--space-lg);
+    }
+
+    .site-nav.is-open {
+      display: block;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .nav-link {
+      font-size: 1rem;
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.querySelector('.nav-toggle') as HTMLButtonElement;
+  const nav    = document.querySelector('.site-nav') as HTMLElement;
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+</script>

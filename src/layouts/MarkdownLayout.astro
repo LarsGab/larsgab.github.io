@@ -1,0 +1,145 @@
+---
+/**
+ * MarkdownLayout
+ *
+ * Layout used by all Markdown pages in `src/pages/*.md`.
+ * Reads page metadata from the markdown frontmatter and renders
+ * the slotted markdown content inside a styled prose container.
+ *
+ * Expected frontmatter:
+ *   title:       string   (required) — page title
+ *   description: string?  (optional) — meta description
+ *   subtitle:    string?  (optional) — shown below the main heading
+ */
+
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+    subtitle?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">{frontmatter.title}</h1>
+      {frontmatter.subtitle && <p class="page-subtitle">{frontmatter.subtitle}</p>}
+    </div>
+
+    <article class="prose">
+      <slot />
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  /* ---- Page header ---- */
+  .page-header {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-title {
+    margin-bottom: 0;
+  }
+
+  .page-subtitle {
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-sm);
+    margin-bottom: 0;
+    max-width: 60ch;
+  }
+
+  /* ---- Markdown prose styles ---- */
+  .prose :global(h2) {
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .prose :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .prose :global(h3) {
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+  }
+
+  .prose :global(p) {
+    margin-bottom: var(--space-md);
+    max-width: 70ch;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .prose :global(li) {
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
+  }
+
+  .prose :global(li strong) {
+    font-family: var(--font-ui);
+    font-size: 0.92rem;
+  }
+
+  .prose :global(a) {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-xl) 0;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--color-text);
+    background: var(--color-bg-alt);
+    padding: var(--space-md) var(--space-lg);
+    margin: var(--space-md) 0;
+    font-style: italic;
+    color: var(--color-text);
+  }
+
+  .prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--color-bg-alt);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  .prose :global(em) {
+    font-style: italic;
+  }
+
+  .prose :global(strong) {
+    font-weight: 700;
+  }
+</style>

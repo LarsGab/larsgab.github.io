@@ -1,0 +1,92 @@
+---
+/**
+ * Footer Component
+ *
+ * Minimal footer with copyright and optional social links.
+ */
+
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  { href: 'https://scholar.google.com', label: 'Google Scholar' },
+  { href: 'https://orcid.org',          label: 'ORCID'          },
+  { href: 'https://github.com',         label: 'GitHub'         },
+  { href: 'https://linkedin.com',       label: 'LinkedIn'       },
+];
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-copy">
+      © {currentYear} Dr. Jane Doe
+    </p>
+    <nav class="footer-nav" aria-label="Social links">
+      <ul class="footer-nav__list" role="list">
+        {socialLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class="footer-nav__link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-lg) 0;
+    margin-top: auto;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .footer-nav__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .footer-nav__link {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-nav__link:hover {
+    color: var(--color-text);
+    opacity: 1;
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
