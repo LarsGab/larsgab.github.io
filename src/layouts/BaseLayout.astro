@@ -6,8 +6,12 @@
  * Handles <head> meta tags, global styles, Header, Footer, and a default <slot>.
  *
  * Props:
- *   title       – Page title (shown in browser tab)
- *   description – Meta description for SEO
+ *   title          – Page title (shown in browser tab)
+ *   description    – Meta description for SEO
+ *   bannerImage    – Optional path to a wide banner image
+ *   bannerAlt      – Optional alt text for the banner
+ *   bannerHeight   – Optional banner height (e.g. "140px")
+ *   bannerPosition – Optional object-position value (e.g. "center 40%")
  */
 
 import Header from '../components/Header.astro';
@@ -17,14 +21,23 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  bannerImage?: string;
+  bannerAlt?: string;
+  bannerHeight?: string;
+  bannerPosition?: string;
 }
 
 const {
   title,
   description = 'Personal academic website of Dr. Lars Gabriel – Researcher in Computational Biology.',
+  bannerImage,
+  bannerAlt = '',
+  bannerHeight = '140px',
+  bannerPosition = 'center center',
 } = Astro.props;
 
-const siteTitle = `${title} | Dr. Lars Gabriel`;
+// Avoid "Dr. Lars Gabriel | Dr. Lars Gabriel" on the homepage
+const siteTitle = title === 'Dr. Lars Gabriel' ? title : `${title} | Dr. Lars Gabriel`;
 ---
 
 <!doctype html>
@@ -36,16 +49,30 @@ const siteTitle = `${title} | Dr. Lars Gabriel`;
     <meta name="author" content="Dr. Lars Gabriel" />
 
     <!-- Open Graph -->
-    <meta property="og:title"       content={siteTitle} />
+    <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:type"        content="website" />
+    <meta property="og:type" content="website" />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
     <title>{siteTitle}</title>
   </head>
   <body>
     <Header />
+
+    {bannerImage && (
+      <div
+        class="page-banner"
+        style={`--banner-height:${bannerHeight}; --banner-position:${bannerPosition};`}
+      >
+        <img
+          src={bannerImage}
+          alt={bannerAlt}
+          class="page-banner__image"
+          aria-hidden={bannerAlt === '' ? 'true' : undefined}
+        />
+      </div>
+    )}
 
     <main id="main-content" class="page-content">
       <slot />
@@ -54,3 +81,37 @@ const siteTitle = `${title} | Dr. Lars Gabriel`;
     <Footer />
   </body>
 </html>
+
+<style>
+  .page-banner {
+    width: 100%;
+    height: var(--banner-height);
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    position: relative;
+  }
+
+  .page-banner__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: var(--banner-position);
+    filter: saturate(0.9) contrast(0.95) brightness(0.96);
+  }
+
+  .page-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.10);
+    pointer-events: none;
+  }
+
+  @media (max-width: 700px) {
+    .page-banner {
+      height: min(var(--banner-height), 110px);
+    }
+  }
+</style>
