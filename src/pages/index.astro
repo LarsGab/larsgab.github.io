@@ -1,0 +1,282 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Home"
+  description="Personal website of Dr. Lars Gabriel – computational biologist working on genome annotation, machine learning, and scientific software."
+>
+  <main class="container">
+    <section class="hero">
+      <div class="hero__text">
+        <p class="hero__eyebrow">Computational Biology · Machine Learning · Genome Annotation</p>
+        <h1 class="hero__title">Dr. Lars Gabriel</h1>
+        <p class="hero__subtitle">
+          Postdoctoral researcher developing computational methods for genome annotation,
+          biological sequence analysis, and applied machine learning in genomics.
+        </p>
+
+        <p class="hero__intro">
+          My work combines method development, research software, and large-scale genomic data analysis.
+          I led the development of the open-source genome annotation tools <strong>Tiberius</strong> and
+          <strong>BRAKER3</strong> and was first author on both projects.
+        </p>
+
+        <div class="hero__actions">
+          <a href="/bio" class="button button--primary">Read Bio</a>
+          <a href="/publications" class="button">View Publications</a>
+          <a href="/contact" class="button">Contact</a>
+        </div>
+      </div>
+
+      <div class="hero__image-wrap">
+        <img
+          src="/website_lgabriel.jpg"
+          alt="Portrait of Dr. Lars Gabriel"
+          class="hero__image"
+        />
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Areas of Work</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Genome Annotation</h3>
+          <p>
+            Developing methods for accurate gene structure prediction and scalable annotation of
+            eukaryotic genomes.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Machine Learning for Genomics</h3>
+          <p>
+            Applying deep learning and related models to biological sequence analysis and genomics problems.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Scientific Software</h3>
+          <p>
+            Building robust and practical tools for research use, with an emphasis on scalability,
+            reproducibility, and real-world applicability.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Selected Work</h2>
+      <div class="feature-grid">
+        <article class="feature">
+          <h3>Tiberius</h3>
+          <p>
+            A deep learning-based gene prediction tool designed for accurate and efficient genome annotation
+            across diverse eukaryotic clades.
+          </p>
+        </article>
+
+        <article class="feature">
+          <h3>BRAKER3</h3>
+          <p>
+            A widely used genome annotation pipeline integrating extrinsic evidence for automated annotation
+            of eukaryotic genomes.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--split">
+      <div>
+        <h2>Research and Collaboration</h2>
+        <p>
+          I am interested in scientific collaboration, applied bioinformatics projects, and consulting related
+          to genome annotation, machine learning for genomics, and scalable analysis workflows.
+        </p>
+      </div>
+
+      <div class="link-list">
+        <a href="/bio">About me</a>
+        <a href="/research">Research</a>
+        <a href="/publications">Publications & Talks</a>
+        <a href="/services">Services</a>
+        <a href="/contact">Get in touch</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .container {
+    width: min(1040px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: var(--space-xl) 0 calc(var(--space-xl) * 1.5);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    padding: var(--space-lg) 0 var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero__eyebrow {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .hero__title {
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__subtitle {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    max-width: 38ch;
+    margin-bottom: var(--space-md);
+  }
+
+  .hero__intro {
+    max-width: 62ch;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.72rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-family: var(--font-ui);
+    font-weight: 600;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .button:hover {
+    background: var(--color-bg-alt);
+  }
+
+  .button--primary {
+    background: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+  }
+
+  .button--primary:hover {
+    opacity: 0.92;
+    background: var(--color-text);
+  }
+
+  .hero__image-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero__image {
+    width: min(100%, 320px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+  }
+
+  .section {
+    padding-top: var(--space-xl);
+  }
+
+  .section h2 {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .card-grid,
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card,
+  .feature {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    padding: var(--space-lg);
+    border-radius: 16px;
+  }
+
+  .card h3,
+  .feature h3 {
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .card p,
+  .feature p {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .section--split {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .link-list {
+    display: grid;
+    gap: 0.7rem;
+    padding-top: 0.2rem;
+  }
+
+  .link-list a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-family: var(--font-ui);
+    font-weight: 600;
+  }
+
+  .link-list a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 900px) {
+    .hero,
+    .section--split,
+    .card-grid,
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__image-wrap {
+      justify-content: flex-start;
+    }
+  }
+</style>

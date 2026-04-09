@@ -17,6 +17,7 @@ import BaseLayout from './BaseLayout.astro';
 interface Props {
   frontmatter: {
     title: string;
+    browserTitle?: string;
     description?: string;
     subtitle?: string;
     avatar?: string;
@@ -30,7 +31,10 @@ const avatarWidth = frontmatter.avatarWidth ?? '96px';
 const avatarHeight = frontmatter.avatarHeight ?? '96px';
 ---
 
-<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+<BaseLayout
+  title={frontmatter.browserTitle ?? frontmatter.title}
+  description={frontmatter.description}
+  >
   <div class="container">
     <div class:list={['page-header', { 'page-header--with-avatar': frontmatter.avatar }]}>
       {frontmatter.avatar && (

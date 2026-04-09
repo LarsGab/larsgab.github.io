@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Contact information for Dr. Lars Gabriel."
+>
+  <main class="container">
+    <section class="hero">
+      <div class="hero__text">
+        <p class="hero__eyebrow">Contact</p>
+        <h1 class="hero__title">Get in Touch</h1>
+        <p class="hero__subtitle">
+          For collaborations, questions, or general inquiries.
+        </p>
+        <p class="hero__intro">
+          The best way to reach me is by email. I am happy to hear about scientific
+          collaborations, applied bioinformatics projects, consulting inquiries, or
+          questions related to my work.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--split">
+      <div>
+        <h2>Contact</h2>
+
+        <div class="contact-card contact-card--primary">
+          <h3>Email</h3>
+          <p>
+            <a href="mailto:lars.gabriel@uni-greifswald.de">lars.gabriel@uni-greifswald.de</a>
+          </p>
+          <p class="muted">
+            I usually reply within a few business days.
+          </p>
+        </div>
+
+        <h2>Online Profiles</h2>
+
+        <div class="profile-grid">
+          <article class="contact-card">
+            <h3>Google Scholar</h3>
+            <p class="muted">Citation profile and publication list</p>
+            <p>
+              <a
+                href="https://scholar.google.de/citations?user=ZQTdgRYAAAAJ&hl=de"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View profile
+              </a>
+            </p>
+          </article>
+
+          <article class="contact-card">
+            <h3>ORCID</h3>
+            <p class="muted">Researcher identifier</p>
+            <p>
+              <a
+                href="https://orcid.org/0000-0003-0264-016X"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                0000-0003-0264-016X
+              </a>
+            </p>
+          </article>
+
+          <article class="contact-card">
+            <h3>GitHub</h3>
+            <p class="muted">Code and research software</p>
+            <p>
+              <a
+                href="https://github.com/larsgab"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                github.com/larsgab
+              </a>
+            </p>
+          </article>
+
+          <article class="contact-card">
+            <h3>LinkedIn</h3>
+            <p class="muted">Professional profile</p>
+            <p>
+              <a
+                href="https://www.linkedin.com/in/lars-gabriel-39a2002b1/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View profile
+              </a>
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <aside class="side-card">
+        <h2>Address</h2>
+        <p>
+          Dr. Lars Gabriel<br />
+          Institute of Mathematics and Computer Science<br />
+          University of Greifswald
+        </p>
+        <p>
+          Walther-Rathenau-Straße 47, Room 1.16<br />
+          17489 Greifswald<br />
+          Germany
+        </p>
+      </aside>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .container {
+    width: min(1040px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: var(--space-xl) 0 calc(var(--space-xl) * 1.5);
+  }
+
+  .hero {
+    padding: var(--space-lg) 0 var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero__eyebrow {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .hero__title {
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+    max-width: 44ch;
+  }
+
+  .hero__intro {
+    max-width: 68ch;
+    color: var(--color-text);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .section {
+    padding-top: var(--space-xl);
+  }
+
+  .section--split {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  h2 {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-lg);
+  }
+
+  .contact-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    padding: var(--space-lg);
+    border-radius: 16px;
+  }
+
+  .contact-card--primary {
+    margin-bottom: var(--space-xl);
+  }
+
+  .contact-card h3,
+  .side-card h2 {
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--color-text);
+  }
+
+  .contact-card p,
+  .side-card p {
+    margin: 0 0 0.65rem;
+    line-height: 1.7;
+  }
+
+  .contact-card a,
+  .side-card a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .muted {
+    color: var(--color-text-muted);
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .side-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    padding: var(--space-lg);
+    border-radius: 16px;
+    position: sticky;
+    top: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    .section--split,
+    .profile-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .side-card {
+      position: static;
+    }
+
+    .container {
+      width: min(100%, calc(100% - 1.5rem));
+    }
+  }
+</style>

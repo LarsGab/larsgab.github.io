@@ -1,0 +1,252 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const publicationsByYear = [
+  {
+    year: '2024',
+    items: [
+      {
+        title: 'Tiberius: End-to-End Deep Learning with an HMM for Gene Prediction',
+        authors: 'Gabriel, L., Becker, F., Hoff, K. J. & Stanke, M.',
+        venue: 'Bioinformatics',
+        details: '40(12), btae685 (2024)',
+        doi: 'https://doi.org/10.1093/bioinformatics/btae685',
+      },
+      {
+        title: 'BRAKER3: Fully Automated Genome Annotation Using RNA-Seq and Protein Evidence with GeneMark-ETP, AUGUSTUS, and TSEBRA',
+        authors: 'Gabriel, L., Bruna, T., Hoff, K. J., Ebel, M., Lomsadze, A., Borodovsky, M. & Stanke, M.',
+        venue: 'Genome Research',
+        details: '34(5), 769–777 (2024)',
+        doi: 'https://doi.org/10.1101/gr.278090.123',
+      },
+      {
+        title: 'A Reference Genome for Ecological Restoration of the Sunflower Sea Star, Pycnopodia helianthoides',
+        authors: 'Schiebelhut, L. M., DeBiasse, M. B., Gabriel, L., Hoff, K. J. & Dawson, M. N.',
+        venue: 'Journal of Heredity',
+        details: '115(1), 86–93 (2024)',
+        doi: 'https://doi.org/10.1093/jhered/esad054',
+      },
+    ],
+  },
+  {
+    year: '2023',
+    items: [
+      {
+        title: 'Galba: Genome Annotation with miniprot and AUGUSTUS',
+        authors: 'Bruna, T., Li, H., Guhlin, J., Honsel, D., Herbold, S., Stanke, M., Nenasheva, N., Ebel, M., Gabriel, L. & Hoff, K. J.',
+        venue: 'BMC Bioinformatics',
+        details: '24(1), 327 (2023)',
+        doi: 'https://doi.org/10.1186/s12859-023-05449-z',
+      },
+      {
+        title: "The Structure of the Tetraploid Sour Cherry 'Schattenmorelle' (Prunus cerasus L.) Genome Reveals Insights into Its Segmental Allopolyploid Nature",
+        authors: 'Wohner, T. W., Emeriewen, O. F., Wittenberg, A. H. J., Nijbroek, K., Wang, R. P., Blom, E.-J., Schneiders, H., Keilwagen, J., Berner, T., Hoff, K. J., Gabriel, L., Thierfeldt, H., Almolla, O., Barchi, L., Schuster, M., Lempe, J., Peil, A. & Flachowsky, H.',
+        venue: 'Frontiers in Plant Science',
+        details: '14, 1284478 (2023)',
+        doi: 'https://doi.org/10.3389/fpls.2023.1284478',
+      },
+    ],
+  },
+  {
+    year: '2021',
+    items: [
+      {
+        title: 'TSEBRA: Transcript Selector for BRAKER',
+        authors: 'Gabriel, L., Hoff, K. J., Bruna, T., Borodovsky, M. & Stanke, M.',
+        venue: 'BMC Bioinformatics',
+        details: '22(1), 566 (2021)',
+        doi: 'https://doi.org/10.1186/s12859-021-04482-0',
+      },
+      {
+        title: 'The Draft Chromosome-Level Genome Assembly of Tetraploid Ground Cherry (Prunus fruticosa Pall.) from Long Reads',
+        authors: 'Wohner, T. W., Emeriewen, O. F., Wittenberg, A. H. J., Schneiders, H., Vrijenhoek, I., Halasz, J., Hrotko, K., Hoff, K. J., Gabriel, L., Lempe, J., Keilwagen, J., Berner, T., Schuster, M., Peil, A., Wunsche, J. & Flachowsky, H.',
+        venue: 'Genomics',
+        details: '113(6), 4173–4183 (2021)',
+        doi: 'https://doi.org/10.1016/j.ygeno.2021.11.004',
+      },
+    ],
+  },
+];
+
+const bookChapters = [
+  {
+    title: 'Navigating Eukaryotic Genome Annotation Pipelines: A Route Map to Using BRAKER, Galba, and TSEBRA',
+    authors: 'Bruna, T., Gabriel, L. & Hoff, K. J.',
+    venue: 'Methods in Molecular Biology',
+    details: '2935, 67–107 (2025)',
+    doi: 'https://doi.org/10.1007/978-1-0716-4583-3_4',
+  },
+];
+---
+
+<BaseLayout
+  title="Publications"
+  description="List of peer-reviewed publications by Dr. Lars Gabriel."
+>
+  <main class="container">
+    <section class="hero">
+      <div class="hero__text">
+        <p class="hero__eyebrow">Publications</p>
+        <h1 class="hero__title">Selected Publications</h1>
+        <p class="hero__subtitle">
+          Peer-reviewed journal articles, conference papers, and book chapters.
+        </p>
+        <p class="hero__intro">
+          My publications focus primarily on genome annotation, gene prediction,
+          and computational methods for biological sequence analysis.
+        </p>
+      </div>
+    </section>
+
+    {publicationsByYear.map((group) => (
+      <section class="section">
+        <div class="section__header">
+          <h2>{group.year}</h2>
+        </div>
+
+        <div class="pub-list">
+          {group.items.map((pub) => (
+            <article class="pub-card">
+              <h3 class="pub-title">{pub.title}</h3>
+              <p class="pub-authors">{pub.authors}</p>
+              <p class="pub-meta">
+                <em>{pub.venue}</em> {pub.details}
+              </p>
+              <p class="pub-link">
+                <a href={pub.doi} target="_blank" rel="noopener noreferrer">DOI</a>
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section class="section">
+      <div class="section__header">
+        <h2>Book Chapters</h2>
+      </div>
+
+      <div class="pub-list">
+        {bookChapters.map((pub) => (
+          <article class="pub-card">
+            <h3 class="pub-title">{pub.title}</h3>
+            <p class="pub-authors">{pub.authors}</p>
+            <p class="pub-meta">
+              In <em>{pub.venue}</em> {pub.details}
+            </p>
+            <p class="pub-link">
+              <a href={pub.doi} target="_blank" rel="noopener noreferrer">DOI</a>
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .container {
+    width: min(1040px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: var(--space-xl) 0 calc(var(--space-xl) * 1.5);
+  }
+
+  .hero {
+    padding: var(--space-lg) 0 var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero__eyebrow {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .hero__title {
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+    max-width: 48ch;
+  }
+
+  .hero__intro {
+    max-width: 68ch;
+    color: var(--color-text);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .section {
+    padding-top: var(--space-xl);
+  }
+
+  .section__header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .section__header h2 {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .pub-list {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .pub-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    padding: var(--space-lg);
+    border-radius: 16px;
+  }
+
+  .pub-title {
+    font-family: var(--font-ui);
+    font-size: 1.05rem;
+    line-height: 1.45;
+    margin: 0 0 var(--space-sm);
+  }
+
+  .pub-authors {
+    margin: 0 0 0.45rem;
+    line-height: 1.65;
+    color: var(--color-text);
+  }
+
+  .pub-meta {
+    margin: 0 0 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .pub-link {
+    margin: 0;
+  }
+
+  .pub-link a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-family: var(--font-ui);
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .container {
+      width: min(100%, calc(100% - 1.5rem));
+    }
+  }
+</style>
