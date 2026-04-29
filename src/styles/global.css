@@ -5,14 +5,17 @@
 /* CSS Custom Properties (Design Tokens) */
 :root {
   /* Colors */
-  --color-bg:         #FAF8F5;   /* warm white / light beige */
-  --color-bg-alt:     #F2EDE4;   /* slightly deeper beige for cards/sections */
-  --color-surface:    #FFFFFF;   /* pure white surfaces */
-  --color-text:       #1C1C1C;   /* near black */
-  --color-text-muted: #6B6B6B;   /* muted gray for secondary text */
-  --color-border:     #D8D0C4;   /* soft border */
-  --color-accent:     #1C1C1C;   /* accent = dark (underlines, active states) */
-  --color-nav-bg:     #FFFFFF;   /* top navigation background */
+  --color-bg:           #FAF8F5;   /* warm white / light beige */
+  --color-bg-alt:       #F2EDE4;   /* slightly deeper beige for cards/sections */
+  --color-surface:      #FFFFFF;   /* pure white surfaces */
+  --color-surface-warm: #FDFBF6;   /* off-white with warm tint */
+  --color-text:         #1C1C1C;   /* near black */
+  --color-text-muted:   #6B6B6B;   /* muted gray for secondary text */
+  --color-border:       #D8D0C4;   /* soft border */
+  --color-border-soft:  rgba(216, 208, 196, 0.55); /* hairline border */
+  --color-accent:       #1C1C1C;   /* accent = dark (underlines, active states) */
+  --color-accent-warm:  #4A3F33;   /* warm dark for gradients */
+  --color-nav-bg:       #FFFFFF;   /* top navigation background */
 
   /* Typography */
   --font-sans:    'Georgia', 'Times New Roman', serif;
@@ -31,9 +34,20 @@
   --max-width: 860px;
   --nav-height: 60px;
 
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* Elevation (layered shadows for depth) */
+  --shadow-xs: 0 1px 2px rgba(28, 28, 28, 0.04);
+  --shadow-sm: 0 1px 2px rgba(28, 28, 28, 0.04), 0 2px 6px rgba(28, 28, 28, 0.04);
+  --shadow-md: 0 1px 3px rgba(28, 28, 28, 0.04), 0 6px 16px rgba(28, 28, 28, 0.06);
+  --shadow-lg: 0 4px 12px rgba(28, 28, 28, 0.06), 0 18px 36px rgba(28, 28, 28, 0.08);
+
   /* Transitions */
   --transition-fast: 150ms ease;
-  --transition-base: 250ms ease;
+  --transition-base: 250ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 /* =============================================
@@ -155,14 +169,25 @@ hr {
 }
 
 /* =============================================
-   CARD COMPONENT
+   CARD COMPONENT (default elevated surface)
    ============================================= */
 .card {
-  background: var(--color-bg-alt);
-  border: 1px solid var(--color-border);
-  border-radius: 2px;
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
   padding: var(--space-lg);
   margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border);
 }
 
 .card-meta {
@@ -183,12 +208,19 @@ hr {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-text);
-  border: 1px solid var(--color-border);
-  padding: 2px 8px;
-  border-radius: 2px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-soft);
+  padding: 3px 10px;
+  border-radius: 999px;
   margin-right: var(--space-xs);
   margin-bottom: var(--space-xs);
   text-decoration: none;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.tag:hover {
+  background: var(--color-bg-alt);
+  border-color: var(--color-border);
 }
 
 /* =============================================

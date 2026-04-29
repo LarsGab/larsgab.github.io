@@ -103,8 +103,8 @@ const bookChapters = [
 
     {publicationsByYear.map((group) => (
       <section class="section">
-        <div class="section__header">
-          <h2>{group.year}</h2>
+        <div class="section__header section__header--year">
+          <span class="year-badge">{group.year}</span>
         </div>
 
         <div class="pub-list">
@@ -113,10 +113,16 @@ const bookChapters = [
               <h3 class="pub-title">{pub.title}</h3>
               <p class="pub-authors">{pub.authors}</p>
               <p class="pub-meta">
-                <em>{pub.venue}</em> {pub.details}
+                <em>{pub.venue}</em> · {pub.details}
               </p>
               <p class="pub-link">
-                <a href={pub.doi} target="_blank" rel="noopener noreferrer">DOI</a>
+                <a href={pub.doi} target="_blank" rel="noopener noreferrer">
+                  <span>View DOI</span>
+                  <svg class="pub-link__arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
               </p>
             </article>
           ))}
@@ -125,8 +131,9 @@ const bookChapters = [
     ))}
 
     <section class="section">
-      <div class="section__header">
-        <h2>Book Chapters</h2>
+      <div class="section__header section__header--year">
+        <span class="year-badge year-badge--alt">Book</span>
+        <span class="year-rule"></span>
       </div>
 
       <div class="pub-list">
@@ -135,10 +142,16 @@ const bookChapters = [
             <h3 class="pub-title">{pub.title}</h3>
             <p class="pub-authors">{pub.authors}</p>
             <p class="pub-meta">
-              In <em>{pub.venue}</em> {pub.details}
+              In <em>{pub.venue}</em> · {pub.details}
             </p>
             <p class="pub-link">
-              <a href={pub.doi} target="_blank" rel="noopener noreferrer">DOI</a>
+              <a href={pub.doi} target="_blank" rel="noopener noreferrer">
+                <span>View DOI</span>
+                <svg class="pub-link__arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
             </p>
           </article>
         ))}
@@ -155,10 +168,6 @@ const bookChapters = [
   }
 
   .hero {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: var(--space-xl);
-    align-items: center;
     padding: var(--space-sm) 0 var(--space-xl);
     border-bottom: 1px solid var(--color-border);
   }
@@ -191,21 +200,53 @@ const bookChapters = [
     margin: 0;
   }
 
-  .section {
+  .hero + .section {
     padding-top: var(--space-xl);
+  }
+
+  .section {
+    padding-top: 1.5rem;
   }
 
   .section__header {
     margin-bottom: var(--space-lg);
   }
 
-  .section__header h2 {
+  /* Year section header — large badge + thin rule */
+  .section__header--year {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+  }
+
+  .year-badge {
     font-family: var(--font-ui);
     font-size: 0.8rem;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--color-text-muted);
+    line-height: 1;
+  }
+
+  .year-badge--alt {
+    font-size: 0.8rem;
+  }
+
+  .section__header--year h2 {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
     margin: 0;
+    flex-shrink: 0;
+  }
+
+  .year-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
   }
 
   .pub-list {
@@ -213,30 +254,63 @@ const bookChapters = [
     gap: var(--space-md);
   }
 
+  /* Publication card — clean white surface matching card style */
   .pub-card {
-    border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
     background: var(--color-bg-alt);
-    padding: var(--space-lg);
-    border-radius: 16px;
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.75rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-base),
+                border-color var(--transition-base);
+  }
+
+  .pub-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 3px;
+    background: var(--color-text);
+    border-radius: 0 2px 2px 0;
+    transition: top var(--transition-base), bottom var(--transition-base);
+  }
+
+  .pub-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border);
+  }
+
+  .pub-card:hover::before {
+    top: 0;
+    bottom: 0;
   }
 
   .pub-title {
     font-family: var(--font-ui);
-    font-size: 1.05rem;
-    line-height: 1.45;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
     margin: 0 0 var(--space-sm);
-  }
-
-  .pub-authors {
-    margin: 0 0 0.45rem;
-    line-height: 1.65;
     color: var(--color-text);
   }
 
+  .pub-authors {
+    margin: 0 0 0.4rem;
+    line-height: 1.65;
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+
   .pub-meta {
-    margin: 0 0 0.8rem;
+    margin: 0 0 var(--space-md);
     color: var(--color-text-muted);
     line-height: 1.6;
+    font-size: 0.92rem;
   }
 
   .pub-link {
@@ -244,11 +318,45 @@ const bookChapters = [
   }
 
   .pub-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     color: var(--color-text);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    text-decoration: none;
     font-family: var(--font-ui);
+    font-size: 0.78rem;
     font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-bg-alt);
+    transition: background var(--transition-fast),
+                border-color var(--transition-fast),
+                color var(--transition-fast);
+  }
+
+  .pub-link a:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+    opacity: 1;
+  }
+
+  .pub-link__arrow {
+    transition: transform var(--transition-fast);
+  }
+
+  .pub-link a:hover .pub-link__arrow {
+    transform: translate(2px, -2px);
+  }
+
+  @media (max-width: 600px) {
+    .section__header--year {
+      flex-wrap: wrap;
+    }
+    .year-rule { display: none; }
   }
 
   @media (max-width: 900px) {
@@ -256,4 +364,4 @@ const bookChapters = [
       width: min(100%, calc(100% - 1.5rem));
     }
   }
-</style>
+</style>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
