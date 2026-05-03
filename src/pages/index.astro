@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Home"
-  description="Personal website of Dr. Lars Gabriel – computational biologist working on genome annotation, machine learning, and scientific software."
+  description="Personal website of Dr. Lars Gabriel - computational biology, genome annotation, machine learning, and scientific software."
   bannerImage="/banners/banner2.jpg"
   bannerHeight="180px"
   bannerPosition="center 45%"
@@ -14,10 +14,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="hero__avatar">
         <img src="/website_lgabriel.jpg" alt="Portrait of Dr. Lars Gabriel" />
       </div>
-<h1 class="hero__name">Lars Gabriel</h1>
+      <h1 class="hero__name">Lars Gabriel</h1>
       <p class="hero__role">Postdoctoral Researcher in Computational Biology</p>
+      <p class="hero__intro">
+        I develop computational methods and research software for eukaryotic genome annotation,
+        with a focus on deep learning-based gene prediction and practical tools that work on real
+        genomic data.
+      </p>
       <p class="hero__keywords">
-        Genome Annotation · Machine Learning · Scientific Software · Bioinformatics
+        Genome Annotation &middot; Machine Learning &middot; Bioinformatics &middot; Scientific Software
       </p>
       <div class="hero__actions">
         <a href="/bio" class="button button--primary">Read Bio</a>
@@ -33,16 +38,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span class="card__index">01</span>
           <h3>Genome Annotation</h3>
           <p>
-            Developing methods for accurate gene structure prediction and scalable annotation of
-            eukaryotic genomes.
+            Gene structure prediction for complex eukaryotic genomes.
           </p>
         </article>
 
         <article class="card">
           <span class="card__index">02</span>
-          <h3>Machine Learning for Genomics</h3>
+          <h3>Deep Learning</h3>
           <p>
-            Applying deep learning and related models to biological sequence analysis and genomics problems.
+            Sequence-based models guided by biological structure and evidence.
           </p>
         </article>
 
@@ -50,8 +54,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span class="card__index">03</span>
           <h3>Scientific Software</h3>
           <p>
-            Building robust and practical tools for research use, with an emphasis on scalability,
-            reproducibility, and real-world applicability.
+            Open-source tools that run on real datasets and research infrastructure.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Current Focus</h2>
+      <div class="feature-grid">
+        <article class="feature">
+          <p class="feature__eyebrow">Research Questions</p>
+          <h3>Learning Gene Structure</h3>
+          <p>
+            How can sequence-based models learn eukaryotic gene structure across diverse clades,
+            and where should they be combined with RNA-seq, protein evidence, or classical
+            annotation methods?
+          </p>
+        </article>
+
+        <article class="feature">
+          <p class="feature__eyebrow">Practical Annotation</p>
+          <h3>Tools That Scale</h3>
+          <p>
+            Scaling accurate annotation toward the diversity of eukaryotic species, while keeping
+            tools inspectable and usable on common research computing infrastructure.
           </p>
         </article>
       </div>
@@ -64,8 +91,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="feature__eyebrow">Tool</p>
           <h3>Tiberius</h3>
           <p>
-            A deep learning-based gene prediction tool designed for accurate and efficient genome annotation
-            across diverse eukaryotic clades.
+            A deep learning-based gene prediction tool that end-to-end integrates a Hidden Markov
+            Model for eukaryotic genome annotation.
           </p>
         </article>
 
@@ -73,8 +100,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="feature__eyebrow">Pipeline</p>
           <h3>BRAKER3</h3>
           <p>
-            A widely used genome annotation pipeline integrating extrinsic evidence for automated annotation
-            of eukaryotic genomes.
+            An automated genome annotation pipeline integrating RNA-seq and protein evidence for
+            scalable eukaryotic annotation.
+          </p>
+        </article>
+
+        <article class="feature">
+          <p class="feature__eyebrow">Tool</p>
+          <h3>TSEBRA</h3>
+          <p>
+            A transcript selector for BRAKER that combines alternative predictions into a final
+            annotation set.
           </p>
         </article>
       </div>
@@ -87,8 +123,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="feature__eyebrow">Collaboration</p>
           <h3>Research &amp; Collaboration</h3>
           <p>
-            I am interested in scientific collaboration, applied bioinformatics projects, and consulting related
-            to genome annotation, machine learning for genomics, and scalable analysis workflows.
+            I am open to collaborations involving genome annotation, bioinformatics workflow design,
+            annotation quality assessment, research software, and machine learning methods for
+            biological sequence analysis.
           </p>
         </article>
 
@@ -159,7 +196,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .hero__name {
     font-family: var(--font-ui);
-    font-size: clamp(3rem, 7vw, 5rem);
+    font-size: clamp(2.5rem, 5.4vw, 4rem);
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1;
@@ -177,6 +214,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     animation-delay: 1.7s;
   }
 
+  .hero__intro {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin: 0;
+    max-width: 68ch;
+    animation: fadeUp 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: 2.15s;
+  }
+
   .hero__keywords {
     font-family: var(--font-ui);
     font-size: 0.82rem;
@@ -186,7 +233,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 0;
     max-width: none;
     animation: fadeUp 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-    animation-delay: 2.4s;
+    animation-delay: 2.75s;
   }
 
   .hero__actions {
@@ -196,7 +243,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: var(--space-sm);
     margin-top: var(--space-sm);
     animation: fadeUp 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-    animation-delay: 3.1s;
+    animation-delay: 3.35s;
   }
 
   .button {
@@ -260,7 +307,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: var(--space-lg);
   }
 
-  /* Compact "Areas of Work" cards — clean white surface with numbered marker */
+  /* Compact "Areas of Work" cards - clean white surface with numbered marker */
   .card {
     position: relative;
     overflow: hidden;
@@ -304,7 +351,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 700;
     letter-spacing: 0.18em;
     color: var(--color-text-muted);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     padding-bottom: 0.35rem;
     border-bottom: 2px solid var(--color-text);
 
@@ -322,7 +369,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     line-height: 1.7;
   }
 
-  /* "Selected Work" feature cards — clean white surface matching card style */
+  /* "Selected Work" feature cards - clean white surface matching card style */
   .feature {
     position: relative;
     overflow: hidden;

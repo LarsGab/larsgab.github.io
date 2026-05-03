@@ -1,6 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const preprints = [
+  {
+    title: 'Accurate ab initio gene prediction in eukaryotes with Tiberius in multiple clades',
+    authors: 'Gabriel, L., Brůna, T., Kaur, A., Krishnan, A., Ortmann, F., Salamov, A., Talbot, S., Becker, F., Krieg, R., Wheat, C. W., Grigoriev, I. V., Stanke, M. & Hoff, K. J.',
+    venue: 'bioRxiv',
+    details: '(2026)',
+    doi: 'https://doi.org/10.64898/2026.04.24.720536',
+    note: 'Extends Tiberius toward accurate ab initio gene prediction across multiple eukaryotic clades.',
+  },
+];
+
 const publicationsByYear = [
   {
     year: '2024',
@@ -11,20 +22,23 @@ const publicationsByYear = [
         venue: 'Bioinformatics',
         details: '40(12), btae685 (2024)',
         doi: 'https://doi.org/10.1093/bioinformatics/btae685',
+        note: 'Introduces a deep learning-based gene prediction tool that end-to-end integrates a Hidden Markov Model for eukaryotic genome annotation.',
       },
       {
         title: 'BRAKER3: Fully Automated Genome Annotation Using RNA-Seq and Protein Evidence with GeneMark-ETP, AUGUSTUS, and TSEBRA',
         authors: 'Gabriel, L., Bruna, T., Hoff, K. J., Ebel, M., Lomsadze, A., Borodovsky, M. & Stanke, M.',
         venue: 'Genome Research',
-        details: '34(5), 769–777 (2024)',
+        details: '34(5), 769-777 (2024)',
         doi: 'https://doi.org/10.1101/gr.278090.123',
+        note: 'Describes a fully automated genome annotation workflow integrating RNA-seq and protein evidence.',
       },
       {
         title: 'A Reference Genome for Ecological Restoration of the Sunflower Sea Star, Pycnopodia helianthoides',
         authors: 'Schiebelhut, L. M., DeBiasse, M. B., Gabriel, L., Hoff, K. J. & Dawson, M. N.',
         venue: 'Journal of Heredity',
-        details: '115(1), 86–93 (2024)',
+        details: '115(1), 86-93 (2024)',
         doi: 'https://doi.org/10.1093/jhered/esad054',
+        note: 'Contributes genome annotation expertise to a reference genome supporting ecological restoration work.',
       },
     ],
   },
@@ -37,6 +51,7 @@ const publicationsByYear = [
         venue: 'BMC Bioinformatics',
         details: '24(1), 327 (2023)',
         doi: 'https://doi.org/10.1186/s12859-023-05449-z',
+        note: 'Presents a protein-informed annotation workflow using miniprot and AUGUSTUS.',
       },
       {
         title: "The Structure of the Tetraploid Sour Cherry 'Schattenmorelle' (Prunus cerasus L.) Genome Reveals Insights into Its Segmental Allopolyploid Nature",
@@ -44,6 +59,7 @@ const publicationsByYear = [
         venue: 'Frontiers in Plant Science',
         details: '14, 1284478 (2023)',
         doi: 'https://doi.org/10.3389/fpls.2023.1284478',
+        note: 'Applies genome annotation methods in a plant genome project focused on polyploid genome structure.',
       },
     ],
   },
@@ -56,13 +72,15 @@ const publicationsByYear = [
         venue: 'BMC Bioinformatics',
         details: '22(1), 566 (2021)',
         doi: 'https://doi.org/10.1186/s12859-021-04482-0',
+        note: 'Presents a transcript selection method for combining and filtering gene predictions in BRAKER workflows.',
       },
       {
         title: 'The Draft Chromosome-Level Genome Assembly of Tetraploid Ground Cherry (Prunus fruticosa Pall.) from Long Reads',
         authors: 'Wohner, T. W., Emeriewen, O. F., Wittenberg, A. H. J., Schneiders, H., Vrijenhoek, I., Halasz, J., Hrotko, K., Hoff, K. J., Gabriel, L., Lempe, J., Keilwagen, J., Berner, T., Schuster, M., Peil, A., Wunsche, J. & Flachowsky, H.',
         venue: 'Genomics',
-        details: '113(6), 4173–4183 (2021)',
+        details: '113(6), 4173-4183 (2021)',
         doi: 'https://doi.org/10.1016/j.ygeno.2021.11.004',
+        note: 'Contributes genome annotation to a chromosome-level plant genome assembly project.',
       },
     ],
   },
@@ -73,15 +91,47 @@ const bookChapters = [
     title: 'Navigating Eukaryotic Genome Annotation Pipelines: A Route Map to Using BRAKER, Galba, and TSEBRA',
     authors: 'Bruna, T., Gabriel, L. & Hoff, K. J.',
     venue: 'Methods in Molecular Biology',
-    details: '2935, 67–107 (2025)',
+    details: '2935, 67-107 (2025)',
     doi: 'https://doi.org/10.1007/978-1-0716-4583-3_4',
+    note: 'Provides practical guidance for using BRAKER, Galba, and TSEBRA in eukaryotic genome annotation workflows.',
+  },
+];
+
+const talks = [
+  {
+    title: 'Tiberius: Progress on Gene Prediction with Deep Learning',
+    authors: 'Gabriel, L., Becker, F., Hoff, K. J. & Stanke, M.',
+    venue: 'Plant and Animal Genomes Conference 32',
+    details: 'January 2025',
+    format: 'Talk',
+  },
+  {
+    title: 'Ab Initio Gene Prediction with Tiberius Matches Gene Prediction Accuracy of BRAKER3',
+    authors: 'Gabriel, L., Brůna, T., Kaur, A., Krishnan, A., Ortmann, F., Salamov, A., Grigoriev, I. V., Talbot, S., Wheat, C. W., Becker, F., Krieg, R., Hoff, K. J. & Stanke, M.',
+    venue: 'AI & Genome Annotation Workshop',
+    details: 'Hinxton, United Kingdom (2025)',
+    format: 'Talk',
+  },
+  {
+    title: 'The BRAKER3 Genome Annotation Pipeline',
+    authors: 'Gabriel, L., Hoff, K. J., Brůna, T., Lomsadze, A., Borodovsky, M. & Stanke, M.',
+    venue: 'Plant and Animal Genomes XXX',
+    details: 'January 15, 2023',
+    format: 'Talk, Poster',
+  },
+  {
+    title: 'TSEBRA: Integrating Various Extrinsic Evidence Sources for More Accurate Genome Annotation with BRAKER',
+    authors: 'Gabriel, L., Hoff, K. J., Thierfeldt, H., Brůna, T., Borodovsky, M. & Stanke, M.',
+    venue: 'Plant and Animal Genomes XXIX',
+    details: 'January 9, 2022',
+    format: 'Talk, Poster',
   },
 ];
 ---
 
 <BaseLayout
   title="Publications"
-  description="List of peer-reviewed publications by Dr. Lars Gabriel."
+  description="Publications, preprints, and selected talks by Dr. Lars Gabriel."
   bannerImage="/banners/banner7.jpg"
   bannerHeight="180px"
   bannerPosition="center 45%"
@@ -90,14 +140,36 @@ const bookChapters = [
     <section class="hero">
       <div class="hero__text">
         <p class="hero__eyebrow">Publications</p>
-        <h1 class="hero__title">Selected Publications</h1>
-        <p class="hero__subtitle">
-          Peer-reviewed journal articles, conference papers, and book chapters.
-        </p>
-        <p class="hero__intro">
-          My publications focus primarily on genome annotation, gene prediction,
-          and computational methods for biological sequence analysis.
-        </p>
+        <h1 class="hero__title">Publications &amp; Talks</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section__header section__header--year">
+        <span class="year-badge year-badge--alt">Preprints</span>
+        <span class="year-rule"></span>
+      </div>
+
+      <div class="pub-list">
+        {preprints.map((pub) => (
+          <article class="pub-card">
+            <h3 class="pub-title">{pub.title}</h3>
+            <p class="pub-authors">{pub.authors}</p>
+            <p class="pub-meta">
+              <em>{pub.venue}</em> &middot; {pub.details}
+            </p>
+            {pub.note && <p class="pub-note">{pub.note}</p>}
+            <p class="pub-link">
+              <a href={pub.doi} target="_blank" rel="noopener noreferrer">
+                <span>View DOI</span>
+                <svg class="pub-link__arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            </p>
+          </article>
+        ))}
       </div>
     </section>
 
@@ -113,8 +185,9 @@ const bookChapters = [
               <h3 class="pub-title">{pub.title}</h3>
               <p class="pub-authors">{pub.authors}</p>
               <p class="pub-meta">
-                <em>{pub.venue}</em> · {pub.details}
+                <em>{pub.venue}</em> &middot; {pub.details}
               </p>
+              {pub.note && <p class="pub-note">{pub.note}</p>}
               <p class="pub-link">
                 <a href={pub.doi} target="_blank" rel="noopener noreferrer">
                   <span>View DOI</span>
@@ -142,8 +215,9 @@ const bookChapters = [
             <h3 class="pub-title">{pub.title}</h3>
             <p class="pub-authors">{pub.authors}</p>
             <p class="pub-meta">
-              In <em>{pub.venue}</em> · {pub.details}
+              In <em>{pub.venue}</em> &middot; {pub.details}
             </p>
+            {pub.note && <p class="pub-note">{pub.note}</p>}
             <p class="pub-link">
               <a href={pub.doi} target="_blank" rel="noopener noreferrer">
                 <span>View DOI</span>
@@ -153,6 +227,26 @@ const bookChapters = [
                 </svg>
               </a>
             </p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section__header section__header--year">
+        <span class="year-badge year-badge--alt">Talks</span>
+        <span class="year-rule"></span>
+      </div>
+
+      <div class="pub-list">
+        {talks.map((talk) => (
+          <article class="pub-card">
+            <h3 class="pub-title">{talk.title}</h3>
+            <p class="pub-authors">{talk.authors}</p>
+            <p class="pub-meta">
+              <em>{talk.venue}</em> &middot; {talk.details}
+            </p>
+            <p class="pub-note">{talk.format}</p>
           </article>
         ))}
       </div>
@@ -212,7 +306,7 @@ const bookChapters = [
     margin-bottom: var(--space-lg);
   }
 
-  /* Year section header — large badge + thin rule */
+  /* Year section header - large badge + thin rule */
   .section__header--year {
     display: flex;
     align-items: baseline;
@@ -254,7 +348,7 @@ const bookChapters = [
     gap: var(--space-md);
   }
 
-  /* Publication card — clean white surface matching card style */
+  /* Publication card - clean white surface matching card style */
   .pub-card {
     position: relative;
     overflow: hidden;
@@ -313,6 +407,14 @@ const bookChapters = [
     font-size: 0.92rem;
   }
 
+  .pub-note {
+    margin: 0 0 var(--space-md);
+    max-width: 78ch;
+    color: var(--color-text);
+    line-height: 1.65;
+    font-size: 0.95rem;
+  }
+
   .pub-link {
     margin: 0;
   }
@@ -364,4 +466,4 @@ const bookChapters = [
       width: min(100%, calc(100% - 1.5rem));
     }
   }
-</style>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+</style>

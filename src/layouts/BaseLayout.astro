@@ -6,12 +6,12 @@
  * Handles <head> meta tags, global styles, Header, Footer, and a default <slot>.
  *
  * Props:
- *   title          – Page title (shown in browser tab)
- *   description    – Meta description for SEO
- *   bannerImage    – Optional path to a wide banner image
- *   bannerAlt      – Optional alt text for the banner
- *   bannerHeight   – Optional banner height (e.g. "140px")
- *   bannerPosition – Optional object-position value (e.g. "center 40%")
+ *   title          - Page title (shown in browser tab)
+ *   description    - Meta description for SEO
+ *   bannerImage    - Optional path to a wide banner image
+ *   bannerAlt      - Optional alt text for the banner
+ *   bannerHeight   - Optional banner height (e.g. "140px")
+ *   bannerPosition - Optional object-position value (e.g. "center 40%")
  */
 
 import Header from '../components/Header.astro';
@@ -29,7 +29,7 @@ interface Props {
 
 const {
   title,
-  description = 'Personal academic website of Dr. Lars Gabriel – Researcher in Computational Biology.',
+  description = 'Personal academic website of Dr. Lars Gabriel - Researcher in Computational Biology.',
   bannerImage,
   bannerAlt = '',
   bannerHeight = '140px',

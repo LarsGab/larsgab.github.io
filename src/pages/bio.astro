@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Bio"
-  description="About Dr. Lars Gabriel – researcher in computational biology, machine learning, and genome annotation."
+  description="About Dr. Lars Gabriel - researcher in computational biology, machine learning, and genome annotation."
   bannerImage="/banners/banner3.jpg"
   bannerHeight="180px"
   bannerPosition="center 45%"
@@ -15,16 +15,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="hero__eyebrow">Researcher in Computational Biology</p>
         <h1 class="hero__title">Dr. Lars Gabriel</h1>
         <p class="hero__subtitle">
-          Postdoctoral Researcher · Institute of Mathematics and Computer Science,<br />
+          Postdoctoral Researcher &middot; Institute of Mathematics and Computer Science,<br />
           University of Greifswald
         </p>
 
         <p class="hero__intro">
-          My work combines computational biology and machine learning, with a particular emphasis on genome annotation.
+          I build methods for genome annotation and biological sequence analysis, with a focus
+          on research that can become useful software for real biological questions.
         </p>
 
         <p class="hero__tags">
-          Bioinformatics · Machine Learning · Genome Annotation · Deep Learning · Scientific Software
+          Bioinformatics &middot; Machine Learning &middot; Genome Annotation &middot; Deep Learning &middot; Scientific Software
         </p>
       </div>
 
@@ -41,18 +42,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>About</h2>
       <div class="text-block">
         <p>
-          I am a computational biologist interested in how modern machine learning can be used
-          to solve real problems in genomics. My work combines method development, large-scale
-          data analysis, and research software engineering.
+          I am interested in research that moves from meaningful biological questions into methods
+          people can actually use. Much of my work focuses on turning complex biological evidence
+          into practical annotation tools that support real genome projects.
         </p>
         <p>
-          In recent years, I have worked primarily on gene structure prediction and genome
-          annotation and led the development of the open-source genome annotation tools
-          <strong>Tiberius</strong> and <strong>BRAKER3</strong>.
+          In recent years, I have worked primarily on eukaryotic gene structure prediction,
+          deep learning, and the broader open-source annotation ecosystem around
+          <strong>Tiberius</strong>, <strong>BRAKER3</strong>, and <strong>TSEBRA</strong>.
         </p>
         <p>
-          What I enjoy most is building methods that are scientifically solid, useful in
-          practice, and accessible to other researchers.
+          I enjoy work that sits between method development and usable software: models should
+          be scientifically well-motivated, but they also need to run reliably, scale to real
+          datasets, and produce results that biologists can inspect and use.
         </p>
       </div>
     </section>
@@ -61,14 +63,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>Background</h2>
       <div class="text-block">
         <p>
-          My academic background is in computational biology and bioinformatics, with a strong
-          emphasis on machine learning and genome analysis. During my doctoral and postdoctoral
-          work, I have developed methods for genome annotation using deep learning and built
-          software for large-scale sequence analysis.
+          My academic background combines biomathematics, mathematics, bioinformatics, and
+          computational biology. I studied biomathematics in my bachelor's program and continued
+          with a master's degree in mathematics before focusing my doctoral and postdoctoral work
+          on eukaryotic genome annotation, especially machine learning methods for automated gene
+          prediction and the integration of RNA-seq, protein, and genomic sequence evidence.
         </p>
         <p>
-          Working daily on HPC systems has also made me care a lot about tools that are reliable
-          in practice and easy for others to use.
+          Working daily on high-performance computing systems has also shaped how I think about
+          research software. I care about tools that are accurate, reproducible, documented well
+          enough for real users, and robust when applied beyond the dataset they were developed on.
         </p>
       </div>
     </section>
@@ -77,15 +81,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>Current Interests</h2>
       <div class="text-block">
         <p>
-          My current work centers on deep learning for genome annotation across diverse
-          eukaryotic clades. I am particularly interested in improving models and integrating
-          different sources of evidence, such as genomic sequence, RNA-seq, and protein
-          information, to improve annotation quality.
+          My current research centers on deep learning for gene prediction across diverse
+          eukaryotic clades. I am interested in how sequence-based models can learn gene
+          structure, how biological rules can inform deep learning methods for biological tasks,
+          and how annotation quality can be evaluated across different organisms.
         </p>
         <p>
-          More broadly, I am interested in applying these models to biological sequence analysis
-          tasks beyond genome annotation, especially where machine learning can support scalable
-          and useful scientific tools.
+          More broadly, I am interested in applying machine learning to biological sequence
+          analysis tasks where the result can become a scalable and useful scientific tool, not
+          only a model benchmark.
         </p>
       </div>
     </section>
@@ -95,9 +99,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h2>Beyond Research</h2>
         <div class="text-block">
           <p>
-            I am also interested in scientific collaboration, applied bioinformatics projects,
-            and consulting related to genome annotation, machine learning for genomics, and
-            scalable analysis workflows.
+            I like projects where careful methods, maintainable software, and biological context
+            have to meet. That can mean improving annotation workflows, evaluating model behavior,
+            or translating a promising idea into a tool others can build on.
           </p>
           <p>
             If you are interested in collaboration or project-based work, feel free to
@@ -114,7 +118,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span class="profile-tag">Machine learning</span>
           <span class="profile-tag">Genome annotation</span>
           <span class="profile-tag">Scientific software</span>
-<span class="profile-tag">Sequence analysis</span>
+          <span class="profile-tag">Sequence analysis</span>
         </div>
       </aside>
     </section>
@@ -226,7 +230,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     align-items: start;
   }
 
-  /* Side card — clean white surface matching card style */
+  /* Side card - clean white surface matching card style */
   .side-card {
     position: relative;
     overflow: hidden;
@@ -307,4 +311,4 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       justify-content: flex-start;
     }
   }
-</style>                                                                                                                                                                                                                                                                                     
+</style>

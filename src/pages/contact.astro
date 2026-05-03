@@ -18,18 +18,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           For collaborations, questions, or general inquiries.
         </p>
         <p class="hero__intro">
-          The best way to reach me is by email. I am happy to hear about scientific
-          collaborations, applied bioinformatics projects, consulting inquiries, or
-          questions related to my work.
+          The best way to reach me is by email. I am especially happy to hear about
+          collaborations involving genome annotation, gene prediction, bioinformatics workflows,
+          research software, or deep learning for biological sequence analysis.
         </p>
       </div>
     </section>
 
     <section class="section section--split">
       <div>
+        <h2>Good Reasons to Contact Me</h2>
+        <ul class="reason-list">
+          <li>Collaboration on eukaryotic genome annotation projects</li>
+          <li>Questions about Tiberius, BRAKER3, TSEBRA, or related workflows</li>
+          <li>Consulting or applied bioinformatics work</li>
+          <li>Talks, workshops, teaching, or research visits</li>
+        </ul>
+
         <h2>Contact</h2>
 
-        <a class="contact-card contact-card--primary" href="mailto:lars.gabriel@uni-greifswald.de">
+        <a class="contact-card contact-card--primary" href="mailto:mail@larsgabriel.de">
           <span class="contact-card__icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="5" width="18" height="14" rx="2"></rect>
@@ -37,8 +45,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </svg>
           </span>
           <div class="contact-card__body">
-            <p class="contact-card__label">Email · preferred</p>
-            <p class="contact-card__value">lars.gabriel@uni-greifswald.de</p>
+            <p class="contact-card__label">Email &middot; preferred</p>
+            <p class="contact-card__value">mail@larsgabriel.de</p>
             <p class="contact-card__note">I usually reply within a few business days.</p>
           </div>
           <span class="contact-card__cta" aria-hidden="true">
@@ -145,7 +153,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           University of Greifswald
         </p>
         <p>
-          Walther-Rathenau-Straße 47, Room 1.16<br />
+          Walther-Rathenau-Strasse 47, Room 1.16<br />
           17489 Greifswald<br />
           Germany
         </p>
@@ -214,7 +222,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 0 0 var(--space-lg);
   }
 
-  /* Contact card — clean, elevated, with icon column */
+  .reason-list {
+    display: grid;
+    gap: 0.65rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-xl);
+    max-width: 72ch;
+  }
+
+  .reason-list li {
+    position: relative;
+    padding-left: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .reason-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 0.38rem;
+    height: 0.38rem;
+    border-radius: 999px;
+    background: var(--color-text);
+  }
+
+  /* Contact card - clean, elevated, with icon column */
   .contact-card {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -330,7 +365,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-underline-offset: 3px;
   }
 
-  /* Primary email card — clean white surface matching card style */
+  /* Primary email card - clean white surface matching card style */
   .contact-card--primary {
     grid-template-columns: auto 1fr auto;
     margin-bottom: var(--space-xl);
@@ -439,7 +474,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: var(--space-sm);
   }
 
-  /* Side card — clean white surface matching card style */
+  /* Side card - clean white surface matching card style */
   .side-card {
     position: sticky;
     top: 2rem;
@@ -513,4 +548,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       width: min(100%, calc(100% - 1.5rem));
     }
   }
-</style>                                                                                                                                                                                                                                                                                                                                                                                                                                           
+</style>
+

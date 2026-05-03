@@ -36,7 +36,7 @@ npm run preview
 
 ## Deployment to GitHub Pages
 
-1. **Configure `astro.config.mjs`** — replace `username` with your GitHub username and, if your repository is not named `<username>.github.io`, set `base` to your repo name:
+1. **Configure `astro.config.mjs`** - replace `username` with your GitHub username and, if your repository is not named `<username>.github.io`, set `base` to your repo name:
 
    ```js
    export default defineConfig({
@@ -45,10 +45,10 @@ npm run preview
    });
    ```
 
-2. **Push to GitHub** — the included GitHub Actions workflow (`.github/workflows/deploy.yml`) will automatically build and deploy on every push to `main`.
+2. **Push to GitHub** - the included GitHub Actions workflow (`.github/workflows/deploy.yml`) will automatically build and deploy on every push to `main`.
 
 3. **Enable GitHub Pages** in your repository settings:
-   - Go to **Settings → Pages**
+   - Go to **Settings > Pages**
    - Source: **GitHub Actions**
 
 ---
@@ -57,29 +57,29 @@ npm run preview
 
 ```
 /
-├── public/
-│   ├── favicon.svg
-│   └── avatar-placeholder.svg
-├── src/
-│   ├── components/
-│   │   ├── Header.astro       # Sticky top navigation bar
-│   │   └── Footer.astro       # Site footer with social links
-│   ├── layouts/
-│   │   ├── BaseLayout.astro   # Root HTML shell (head, body, header, footer)
-│   │   └── PageLayout.astro   # Content page wrapper with optional heading
-│   ├── pages/
-│   │   ├── index.astro        # Bio / Homepage
-│   │   ├── publications.astro # Publication list
-│   │   ├── service.astro      # Service & teaching
-│   │   └── contact.astro      # Contact information
-│   └── styles/
-│       └── global.css         # Design tokens, reset, utility classes
-├── .github/
-│   └── workflows/
-│       └── deploy.yml         # GitHub Actions deploy workflow
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+|-- public/
+|   |-- favicon.png
+|   |-- avatar-placeholder.svg
+|   |-- website_lgabriel.jpg
+|   `-- website_lgabriel_nav.webp
+|-- src/
+|   |-- components/
+|   |   |-- Header.astro       # Sticky top navigation bar
+|   |   `-- Footer.astro       # Site footer with social links
+|   |-- layouts/
+|   |   |-- BaseLayout.astro   # Root HTML shell (head, body, header, footer)
+|   |   |-- MarkdownLayout.astro
+|   |   `-- PageLayout.astro   # Content page wrapper with optional heading
+|   |-- pages/
+|   |   |-- index.astro        # Homepage
+|   |   |-- bio.astro          # Bio
+|   |   |-- publications.astro # Publication list
+|   |   `-- contact.astro      # Contact information
+|   `-- styles/
+|       `-- global.css         # Design tokens, reset, utility classes
+|-- astro.config.mjs
+|-- package.json
+`-- tsconfig.json
 ```
 
 ## Customisation
